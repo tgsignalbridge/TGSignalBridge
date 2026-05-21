@@ -152,6 +152,8 @@ Yes. Supports both QT Demo and QT Real accounts.
 -Does it support OTC pairs?
 Yes.
 
+-Are my credentials secure? Yes, the bot only stores the configuration, trades, and errors locally in the files described (Used files).
+
 -Is the bot compatible with other binary trading applications (such as Quotex)? No; for the moment, the bot is configured exclusively for Pocket Option. (https://pocketoption.com/)
 
 -Can I use multiple channels? Not for now, the architecture is prepared for future multi-channel support.
