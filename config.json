@@ -1,0 +1,32 @@
+{
+  "telegram": {
+    "api_id": 32859107,
+    "api_hash": "cce2426b84a8a33ae8b26ab3ec6c635a",
+    "phone": 17029294214,
+    "username": "@Liastart",
+    "channel_name": "Emma Trader VIP",
+    "channel_id": "https://t.me/+KSNSFKlOwMozOTIy",
+    "channels": [
+      {
+        "id": "https://t.me/+KSNSFKlOwMozOTIy",
+        "name": "Emma Trader VIP"
+      }
+    ],
+    "telegram_utc_offset": -3,
+    "local_utc_offset": -4
+  },
+  "pocket_option": {
+    "mode": "QT Demo",
+    "init_bit": 1,
+    "wait_next_candle": false,
+    "min_payout": 92,
+    "min_payout_mg": 92
+  },
+  "martingale": {
+    "coefficient": 2.15,
+    "enabled": true,
+    "auto": false,
+    "steps": 6,
+    "at_max_step": "restart"
+  }
+}
