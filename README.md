@@ -163,7 +163,7 @@ The bot automates Pocket Option through Chrome browser control.
 
 -Can I trade on my own without closing the application? Yes. You can use the Pause button at any time to stop receiving signals and trade on your own.
 
--Can I modify Pocket Option's operational settings? Yes, you can modify them; however, please remember that if the bot has initiated a trade [JOB] and it is currently in the "[INFO] Waiting for Direction..." state, the next trade will be executed using the current settings.
+-Can I modify Pocket Option's operational settings? Yes, you can modify them; however, please remember that if the bot has initiated a trade job [JOB] and it is currently in the "[INFO] Waiting for Direction..." state, the next trade will be executed using the current settings.
 Note: If you modify the trade amount during the course of a Martingale sequence, an error will occur unless you reset the amount using a Martingale sequence. The bot follows the Martingale sequence to determine the amount for the next trade. (e.g [MG] Sequence: [1.00, 2.15, 4.62, 9.93, 21.35, 45.90, 98.68]). 
 
 ---
