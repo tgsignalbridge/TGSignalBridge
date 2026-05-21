@@ -1,0 +1,166 @@
+# TGSignalBridge Trial v0.3.5
+
+TGSignalBridge is a lightweight desktop application that automatically receives Telegram trading signals and executes trades on Pocket Option in real time.
+
+It supports Demo and Real accounts, automatic CALL/PUT detection, Martingale management, minimum payout and balance protection, live statistics, trade history, and an easy-to-use interface designed for both beginners and advanced users.
+
+---
+
+# Features
+
+- Fully Automatic Telegram → Pocket Option trading
+- Automatic Signal, Time and Direction detection
+- Pocket Option Demo & Real support
+- Auto CALL / PUT execution
+- Minimum payout & balance protection
+- Adjustable Martingale system
+- Real-time stats and trade history
+- Fast and lightweight desktop GUI
+- Start / Pause / Resume / Stop anytime
+- Beginner-friendly and easy to use
+
+---
+
+# Disclaimer
+
+TGSignalBridge is an automation tool designed to execute trades based on Telegram signals. Trading financial instruments involves significant risk and may result in loss of capital. The software does not guarantee profits or trading accuracy. Users are fully responsible for their trading decisions, account management, and financial results.
+Use at your own risk.
+
+---
+
+# Requirements
+
+- Windows
+- Google Chrome installed
+- Matching ChromeDriver version
+
+Download ChromeDriver:
+https://googlechromelabs.github.io/chrome-for-testing/
+
+---
+
+# Installation
+
+1. Download the repository files
+2. Extract ChromeDriver into the same folder
+3. Run: TGSignalBridge_free.exe
+
+---
+Setup
+Telegram
+Get your Telegram API credentials from:
+https://my.telegram.org
+
+Fill:
+
+API_ID
+API_HASH
+PHONE
+Channel Name
+Channel Link / Username / ID
+
+Pocket Option
+Configure:
+Demo or Real account
+Initial Amount
+Minimum Payout %
+
+Martingale
+Optional settings:
+Enable Martingale
+Coefficient
+Maximum Steps
+
+How to Start:
+Press Save
+Press Start
+Enter Telegram login code
+Wait for connection
+Monitor signals, trades and logs
+
+---
+Interface Overview
+
+Left Panel
+
+Contains all configuration fields:
+Telegram settings
+Pocket Option settings
+Martingale settings
+
+Top Controls
+Start/Resume
+Pause
+Stop
+
+Statistics
+Displays:
+Runtime
+Win/Loss
+Profit
+Initial Balance
+
+Trades Table
+Shows executed trades:
+Side
+Expiration
+Asset
+Amount
+Profit
+Result
+
+Log Console
+Displays:
+Telegram messages
+Trade execution
+Warnings
+Errors
+System events
+
+---
+Used Files
+File	Purpose
+config.json	Stores configuration
+noise_keywords.json	Filters noise messages
+trades_demo.csv	Demo trades history
+trades_real.csv	Real trades history
+Error Dir	Error reports folder
+
+---
+FAQ
+Is this a guaranteed profit bot?
+No. TGSignalBridge only automates trade execution from Telegram signals. Profit is never guaranteed.
+
+Does it work with Real accounts?
+Yes. Supports both QT Demo and QT Real accounts.
+
+Does it support OTC pairs?
+Yes.
+
+Can I use multiple channels?
+The architecture is prepared for future multi-channel support.
+
+Why is ChromeDriver required?
+The bot automates Pocket Option through Chrome browser control.
+
+Can I pause trading without closing the app?
+Yes. Use the Pause button anytime.
+
+Is this beginner friendly?
+Yes. The GUI was designed to be simple and easy to configure.
+
+Donations
+I'll appreciate if you want to support future development:
+
+Ko-fi
+https://ko-fi.com/tgsignalbridge
+
+USDT (TRC20)
+0x1394592c21526d29c2339edb5ae7ba51a6ade944
+
+Support
+For issues, suggestions or bug reports, open an Issue on GitHub.
+Email me to	support.tgsignalbridge@gmail.com
+
+License
+This project is provided for educational and automation purposes only.
