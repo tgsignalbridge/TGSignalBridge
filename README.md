@@ -1,4 +1,4 @@
-# TGSignalBridge Trial v0.3.6
+# TGSignalBridge Trial v0.3.6 
 
 TGSignalBridge is a lightweight desktop application that automatically receives Telegram trading signals and executes trades on Pocket Option in real time.
 
