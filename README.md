@@ -1,6 +1,6 @@
-# TGSignalBridge Trial v0.3.6 
+# TGSignalBridge_Bot Trial v0.3.6 
 
-TGSignalBridge is a lightweight desktop application that automatically receives Telegram trading signals and executes trades on Pocket Option in real time.
+TGSignalBridge_Bot is a lightweight desktop application that automatically receives Telegram trading signals from TGSignalBridge channel and executes trades on Pocket Option in real time.
 
 It supports Demo and Real accounts, automatic CALL/PUT detection, Martingale management, minimum payout and balance protection, live statistics, trade history, and an easy-to-use interface designed for both beginners and advanced users.
 
@@ -8,8 +8,8 @@ It supports Demo and Real accounts, automatic CALL/PUT detection, Martingale man
 
 # Disclaimer
 
-TGSignalBridge is an automation tool designed to execute trades based on Telegram signals. Trading financial instruments involves significant risk and may result in loss of capital. The software does not guarantee profits or trading accuracy. Users are fully responsible for their trading decisions, account management, and financial results.
-Use at your own risk.
+TGSignalBridge_Bot is an automation tool designed to execute trades based on Telegram signals from the TGSignalBridge channel. Trading financial instruments involves significant risk and may result in loss of capital. The software does not guarantee profits or trading accuracy. Users are fully responsible for their trading decisions, account management, and financial results.
+Please, Test the bot at Demo mode fist to try diferents configuratios and validate the bot. Use it at your own risk.
 
 ---
 
@@ -44,7 +44,7 @@ https://googlechromelabs.github.io/chrome-for-testing/
 
 1. Download the repository files to a folder
 2. Extract ChromeDriver into the same folder
-3. Run: TGSignalBridge_free.exe
+3. Run: TGSignalBridge_Bot.exe
 
 ---
 # Setup
@@ -61,11 +61,13 @@ Fill: API_ID, API_HASH, PHONE, Channel Name, Channel Link / Username / ID
 How to Start:
 ---
 
-1. Configure the bot and press Save
+1. Open Telegram Desktop and joint to the TGSignalBridge channel (https://t.me/TGSignalBridge)
 
-2. Press Start
+2. Configure the bot and press Save
 
-3. Enter Telegram login code
+3. Press Start
+
+4. Enter Telegram login code
 
   Wait for connection
   
@@ -89,9 +91,8 @@ Left Panel
   
   PHONE	| Telegram phone number including country code.
   
-  CHANNEL > Name	| Display name of the Telegram channel/group.
+  SIGNAL CHANNEL | Display name of the Telegram TGSignalBridge channel.
   
-  CHANNEL > Link / Username / ID	| Telegram invite link, username, or numeric channel ID.
 
 - Pocket Option settings
 
@@ -164,7 +165,7 @@ Rigth Panel
   
   Note: Table attempt to reflect the daily trades.
 
-- Log Console commands:
+- Log Console commands examples:
 
   •	[INFO] Normal operational messages.
   
@@ -203,13 +204,13 @@ Rigth Panel
 # FAQ
 
 -Is this a guaranteed profit bot?
-No. TGSignalBridge only automates trade execution from Telegram signals. Profit is never guaranteed.
+No. TGSignalBridge_Bot only automates trade execution from Telegram TGSignalBridge channel signals. Because the bot's configuration is the user's responsibility, Profit is never guaranteed by the bot.
 
 -Does it work with Real accounts?
-Yes. Supports both QT Demo and QT Real accounts.
+Yes. Supports both QT Demo and QT Real accounts. Remenber, Test it in Demo mode first.
 
 -Does it support OTC pairs?
-Yes.
+Yes, the bot support OTC trades, since the TGSignalBridge channel sends pairs for both OTC and the standard market.
 
 -Are my credentials secure? Yes, the bot only stores the configuration, trades, and errors locally in the files described (Used files).
 
@@ -222,7 +223,7 @@ The bot automates Pocket Option through Chrome browser control.
 
 -Can I trade on my own without closing the application? Yes. You can use the Pause button at any time to stop receiving signals and trade on your own.
 
--Can I modify Pocket Option's operational settings? Yes, you can modify them; however, please remember that if the bot has initiated a trade job [JOB] and it is currently in the "[INFO] Waiting for Direction..." state, the next trade will be executed using the current settings.
+-Can I trade manually on Pocket Option within the window opened by the bot? Since many signals can arrive instantaneously, changing the settings or trading manually on Pocket Option may interfere with the bot's operations and cause errors; therefore, it is recommended not to operate or trade manually while the bot is executing trades.
 
 - Note: If you modify the trade amount during the course of a Martingale sequence, an error will occur unless you reset the amount using a Martingale sequence. The bot follows the Martingale sequence to determine the amount for the next trade. (e.g [MG] Sequence: [1.00, 2.15, 4.62, 9.93, 21.35, 45.90, 98.68]). 
 
