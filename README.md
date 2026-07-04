@@ -1,15 +1,22 @@
-# TGSignalBridge_Bot Trial v0.3.8 
+# TGSignalBridge Trial 
 
-TGSignalBridge_Bot is a lightweight desktop application that automatically receives Telegram trading signals from TGSignalBridge channel and executes trades on Pocket Option in real time.
+TGSignalBridge Trial is an automation tool lightweight desktop application designed to execute trades based on Telegram signals. It is automatically receives Telegram trading signals and executes trades on Pocket Option in real time.
 
-It supports Demo and Real accounts, automatic CALL/PUT detection, Martingale management, minimum payout and balance protection, live statistics, trade history, and an easy-to-use interface designed for both beginners and advanced users.
+It supports Demo and Real accounts, automatic signal detection, Martingale management, simultaneous trades, minimum payout and balance protection, live statistics, trade history logs, and an easy-to-use interface designed for both beginners and advanced users.
+
+---
+
+# Version notes
+
+TGSignalBridge Trial is designed to run as a trial for 14 days or 300 trades opened in base mode (not Martingale), unless the author grants an exception.
 
 ---
 
 # Disclaimer
 
-TGSignalBridge_Bot is an automation tool designed to execute trades based on Telegram signals from the TGSignalBridge channel. Trading financial instruments involves significant risk and may result in loss of capital. The software does not guarantee profits or trading accuracy. Users are fully responsible for their trading decisions, account management, and financial results.
-Please, Test the bot at Demo mode fist to try diferents configuratios and validate the bot. Use it at your own risk.
+ Trading financial instruments involves significant risk and may result in loss of capital. The software does not guarantee profits or trading accuracy. Users are fully responsible for their trading decisions, account management, and financial results.
+
+Please, Test the bot at Demo mode first to try diferents configuratios and validate the system. Use it at your own risk.
 
 ---
 
@@ -20,8 +27,10 @@ Please, Test the bot at Demo mode fist to try diferents configuratios and valida
 - Automatic Signal, Time and Direction detection
 - Auto CALL / PUT execution
 - Minimum payout & balance protection
+- Anti-Popup Bonus windows
 - Adjustable Martingale system
-- Real-time stats and trade history
+- Recovery Pool system with recovery Factor 
+- Real-time stats and trade Logs history
 - Start / Pause / Resume / Stop anytime
 - Fast and lightweight desktop GUI
 - Beginner-friendly and easy to use
@@ -44,36 +53,40 @@ https://googlechromelabs.github.io/chrome-for-testing/
 
 1. Download the repository files to a folder
 2. Extract ChromeDriver into the same folder
-3. Run: TGSignalBridge_Bot.exe
+3. Run: TGSignalBridge_Trial14.exe
 
 ---
 # Setup
 
-- Telegram:
-Get your Telegram API credentials from https://my.telegram.org
+- TELEGRAM:: API_ID, API_HASH, PHONE
+  Get your Telegram API credentials from https://my.telegram.org
 
-Fill: API_ID, API_HASH, PHONE, Channel Name, Channel Link / Username / ID
+- Channel: Name, Link/Username/ID, Telegram UTC Offset, Local UTC Offset
 
-- Pocket Option: Demo or Real account, Initial Amount, Minimum Payout %
+- Pocket Option: Demo or Real account, Initial Amount, Minimum Payout %, Minimum Payout MG (%)
 
-- Martingale: Enable Martingale, Coefficient, Maximum Steps
+- Signal: Signal Type, signal pattern vars, 
+
+- Martingale: Enable Martingale, Coefficient, Maximum Steps, 
+
+- Protection: Recovery Pool Factor, Recovery Pool Threshold
 
 How to Start:
 ---
 
-1. Open Telegram Desktop and joint to the TGSignalBridge channel (https://t.me/TGSignalBridge)
+1. Open Telegram Desktop and select your Signal channel
 
-2. Configure the bot and press Save
+2. Open TGSignalBridge and configure the Telegram, Pocket Option and Signal parameters in Setting option, press Save.
 
-3. Press Start
+3. Press Start to begin read signals
 
-4. Enter Telegram login code
+  4. For the first time, Enter Telegram login Code and Login to Pocket Option
 
-  Wait for connection
+    Wait for connection
   
-  Monitor signals, trades and logs
+    Note: Watch for the initial signals and check the logs to verify that the parameters are correct, the signals are being received and processed, and trades are being executed properly. If the signals are not being captured correctly, or an ERROR occurs, you can Stop the bot, return to the Settings to adjust the parameters, and Save the changes. Then, press Start again to begin.
 
-  If necessary, copy the Martingale sequence. (e.g [MG] Sequence: [1.00, 2.15, 4.62, 9.93, 21.35, 45.90, 98.68])
+    If necessary, copy the Martingale sequence if use it. (e.g [MG] Sequence: [1.00, 2.15, 4.62, 9.93, 21.35, 45.90, 98.68])
 
 ---
 # Interface Overview
@@ -102,7 +115,9 @@ Left Panel
   
   Initial Amount	| Initial trade amount used for the first entry and restarting from Martingale.
   
-  Minimum Payout Init (%)	| Minimum payout percentage required to allow opening a trade.
+  Minimum Payout Init (%)	| Minimum payout required to execute the initial trade.\nSignals below this percentage are ignored..
+
+  Minimum Payout MG (%) | Minimum payout required to execute Martingale recovery trades.
 
 - Martingale settings
   
@@ -138,12 +153,12 @@ Rigth Panel
   
   •	Profit: Current accumulated profit/loss.
   
-  Note: Statistics attempt to reflect a summary of daily trades.
+  Note: Statistics over the Logs Trade table attempt to reflect a summary of daily trades.
 
 
 - Trades Table:
 
-  The trades table displays the latest executed trades loaded from the CSV history files.
+  The trades table displays the latest executed trades loaded from the history files.
 
   Column	| Meaning
   
@@ -152,6 +167,8 @@ Rigth Panel
   Expiration	| Expiration timeframe such as M1 or M2.
   
   Asset	| Trading asset/pair.
+
+  Accuracy | Accuracy of the signal, if it have.
   
   Time	| Trade execution/result time.
   
@@ -169,16 +186,18 @@ Rigth Panel
 
   •	[INFO] Normal operational messages.
   
-  •	[TELEGRAM] Telegram messages received.
-  
-  •	[JOB] Job in queue processed
+  •	[TELEGRAM]  Telegram messages received.
   
   •	[✅ CALL] / [🔻 PUT] Trade executed
   
   •	[QUEUE] Result in queue to be checked at time
   
   •	[WARN] Warning messages.
+
+  •	[MG] Martingale messages
   
+  •	[LOG] Record the trade after obtaining the result.
+
   •	[ERROR] Error or failure messages.
   
   •	[CRITICAL ERROR SAVED] Please send this file to support.tgsignalbridge@gmail.com: errors/file
@@ -190,7 +209,7 @@ Rigth Panel
 
   File	| Purpose
   
-  •	config.json	| Stores GUI configuration and credentials.
+  •	config.json	| Stores bot Setting configuration.
   
   •	noise_keywords.json	| Keywords of noise to discard messages without signals.
   
@@ -201,46 +220,113 @@ Rigth Panel
   •	Error Dir	| Save error document folder.
 
 ---
-# FAQ
+# Frequently Asked Questions (FAQ)
 
--Is this a guaranteed profit bot?
-No. TGSignalBridge_Bot only automates trade execution from Telegram TGSignalBridge channel signals. Because the bot's configuration is the user's responsibility, Profit is never guaranteed by the bot.
+## General
 
--Does it work with Real accounts?
-Yes. Supports both QT Demo and QT Real accounts. Remenber, Test it in Demo mode first.
+### Is TGSignalBridge a guaranteed profit bot?
+No. TGSignalBridge automates trade execution based on signals received from the Telegram channel and the parameters configured in the bot. Trading always involves risk, and profitability depends on market conditions and the user's configuration.
 
--Does it support OTC pairs?
-Yes, the bot support OTC trades, since the TGSignalBridge channel sends pairs for both OTC and the standard market.
+### Is the software free?
+TGSignalBridge includes a free Trial version for testing. Future editions may provide advanced features.
 
--Are my credentials secure? Yes, the bot only stores the configuration, trades, and errors locally in the files described (Used files).
+### Why is ChromeDriver required?
+The bot controls Pocket Option by automating the Chrome browser through ChromeDriver.
 
--Is the bot compatible with other binary trading applications (such as Quotex)? No; for the moment, the bot is configured exclusively for Pocket Option. (https://pocketoption.com/)
+## Pocket Option
 
--Can I use multiple channels? Not for now, the architecture is prepared for future multi-channel support.
+### Does it work with Real accounts?
+Yes. The bot supports both **QT Demo** and **QT Real** accounts. It is strongly recommended to test TGSignalBridge in Demo mode before trading with real funds.
 
--Why is ChromeDriver required?
-The bot automates Pocket Option through Chrome browser control.
+### Does TGSignalBridge support OTC assets?
 
--Can I trade on my own without closing the application? Yes. You can use the Pause button at any time to stop receiving signals and trade on your own.
+Yes. The bot supports both OTC and regular market assets available on Pocket Option, including Forex, Cryptocurrencies, Stocks, and Commodities.
 
--Can I trade manually on Pocket Option within the window opened by the bot? Since many signals can arrive instantaneously, changing the settings or trading manually on Pocket Option may interfere with the bot's operations and cause errors; therefore, it is recommended not to operate or trade manually while the bot is executing trades.
-
-- Note: If you modify the trade amount during the course of a Martingale sequence, an error will occur unless you reset the amount using a Martingale sequence. The bot follows the Martingale sequence to determine the amount for the next trade. (e.g [MG] Sequence: [1.00, 2.15, 4.62, 9.93, 21.35, 45.90, 98.68]). 
+### Is the bot compatible with other trading platforms such as Quotex?
+No. At the moment, TGSignalBridge is designed exclusively for Pocket Option.
 
 ---
 
-# Donations
-I'll appreciate if you want to support future development:
+## Trading
 
-Ko-fi: https://ko-fi.com/tgsignalbridge
+### Does the software execute trades automatically?
+Yes. The bot automatically detects signals from the TGSignalBridge channel and executes trades on Pocket Option.
 
-USDT (TRC20): 0x1394592c21526d29c2339edb5ae7ba51a6ade944
+### Can I trade manually while the bot is running?
+It is not recommended. Manual trading or changing Pocket Option settings while the bot is executing trades may interfere with its operation and produce unexpected results.
+
+### Can I temporarily stop automated trading?
+Yes. Use the **Pause** button to temporarily stop processing new Telegram signals. You can then trade manually and resume the bot whenever you wish.
+
+---
+
+## Martingale & Protection
+
+### Does the bot support Martingale?
+Yes. The software includes configurable Martingale settings, including Coefficient, Maximum Steps, and configurable behavior after reaching the last step.
+
+### Does the bot verify the payout before trading?
+Yes. You can configure independent Minimum Payout percentages for both the Initial trade and Martingale trades.
+
+### How does TGSignalBridge protect my balance?
+Several protection mechanisms are included:
+
+- Verifies that sufficient account balance exists before placing the next trade.
+- Validates the complete Martingale sequence before starting.
+- Includes an Recovery Pool protection and ajustable Factor of recovery to reduce the impact of extended losing streaks.
+
+### Can I manually change the trade amount?
+It is not recommended while a Martingale sequence is active. The bot calculates the next amount according to the configured sequence.
+
+Example:
+
+```
+1.00 → 2.15 → 4.62 → 9.93 → 21.35 → 45.90 → 98.68
+```
+
+If the amount is modified manually during the sequence, Martingale recovery may become inconsistent.
+
+---
+
+## Channels & Signals
+
+### Can I use multiple Telegram signal channels?
+Not yet. The current version supports one active channel, although the architecture has been designed to support multiple channels in future releases.
+
+### Why isn't the bot processing my Telegram signals?
+
+If the bot ignores some Telegram signals, the selected signal may not match the format used by your channel.
+
+Try the following:
+
+- Choose a different **Signal Type**.
+- Configure the signal patterns for your channel.
+- Verify that the Telegram messages follow a standar signal format.
+- Contact **TGSignalBridge Support (https://t.me/TGSignalBridgeSupport)** on Telegram if you need help configuring your channel.
+---
+
+## Security
+
+### Are my credentials secure?
+Yes. Your Telegram credentials or Login User/Password, settings and trade logs files are stored locally on your computer. No personal information is transmitted to external site.
+
+### Is Telegram or Pocket Option login automated?
+No. For security reasons, you must log in manually the first time to your Telegram account and to Pocket Option account before starting the bot.
+
+
+---
 
 # Support
-For issues, suggestions or bug reports, open an Issue on GitHub or Email me to support.tgsignalbridge@gmail.com
+For issues, suggestions or bug reports, Email me to support.tgsignalbridge@gmail.com
 
-Telegram: https://t.me/TGSignalBridge
+Telegram Group: https://t.me/TGSignalBridgeSupport
 
 # License
 
-This project is provided for educational and automation purposes only.
+TGSignalBridge is proprietary commercial software.
+
+The Trial version is provided for evaluation purposes only. Future editions may require the purchase of a valid license.
+
+Unauthorized copying, modification, redistribution, reverse engineering, or resale of this software is strictly prohibited.
+
+© 2026 TGSignalBridge. All rights reserved.
