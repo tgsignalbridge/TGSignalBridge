@@ -67,9 +67,9 @@ https://googlechromelabs.github.io/chrome-for-testing/
 
 - Signal: Signal Type, signal pattern vars, 
 
-- Martingale: Enable Martingale, Coefficient, Maximum Steps, 
+- Martingale: Enable Martingale, MG Coefficient, Maximum Steps, On Max Step
 
-- Protection: Recovery Pool Factor, Recovery Pool Threshold
+- Protection: Recovery Factor, Recovery Threshold, Max Concurrent Trades
 
 How to Start:
 ---
@@ -119,15 +119,19 @@ Left Panel
 
   Minimum Payout MG (%) | Minimum payout required to execute Martingale recovery trades.
 
-- Martingale settings
+- Risk Management settings
   
   Field / Option	| Description
   
-  Enable	| Enables Martingale money management.
+  Enable Martingale	| Enables Martingale money management.
   
-  COEFFICIENT	| Multiplier used to calculate next Martingale amount after loss.
+  MG Coefficient	| Multiplier used to calculate next Martingale amount after loss.
   
-  STEPS	| Maximum Martingale steps allowed.
+  Maximum Steps	| Maximum Martingale steps allowed.
+
+  On Max Step | Defines what happens after the Maximum Martingale steps are reached.
+
+  Recovery Factor | Percentage of the Recovery Pool added to the next trade after a win.
 
 Rigth Panel
 ---
@@ -263,7 +267,7 @@ Yes. Use the **Pause** button to temporarily stop processing new Telegram signal
 ## Martingale & Protection
 
 ### Does the bot support Martingale?
-Yes. The software includes configurable Martingale settings, including Coefficient, Maximum Steps, and configurable behavior after reaching the last step.
+Yes. The software includes configurable Martingale settings, including MG Coefficient, Maximum Steps, and configurable behavior through On Max Step.
 
 ### Does the bot verify the payout before trading?
 Yes. You can configure independent Minimum Payout percentages for both the Initial trade and Martingale trades.
