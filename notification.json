@@ -3,8 +3,8 @@
 
         {
             "id":"v049",
-            "title":"TGSignalBridge v0.4.9",
-            "text":"-Cooldown fix\n -Notification system",
+            "title":"TGSignalBridge v0.4.9 Update",
+            "text":"-Cooldown fix.\n -Notification system.",
             "button":"Download",
             "url":"https://github.com/tgsignalbridge/TGSignalBridge/releases/latest/download/TGSignalBridge_Trial.exe"
         },
