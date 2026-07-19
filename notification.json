@@ -1,0 +1,25 @@
+{
+    "notifications":[
+
+        {
+            "id":"v049",
+            "title":"TGSignalBridge v0.4.9",
+            "text":"-Cooldown fix\n -Notification system",
+            "button":"Download",
+            "url":"https://github.com/tgsignalbridge/TGSignalBridge/releases/latest/download/TGSignalBridge_Trial.exe"
+        },
+
+        {
+            "id":"youtube",
+
+            "title":"New Video in Youtube",
+
+            "text":"TGSignalBridge Presentation video available.",
+
+            "button":"Watch",
+
+            "url":"https://youtu.be/1Fw1aV5z6ks"
+        }
+
+    ]
+}
